@@ -66,12 +66,12 @@ Performance results of the AdaIR framework trained under the all-in-one setting
 <details>
 <summary><strong>Three Distinct Degradations</strong> (click to expand) </summary>
 
-<img src = "figs/adair3d.png"> 
+<img src = "figs/adair3d.PNG"> 
 </details>
 <details>
 <summary><strong>Five Distinct Degradations</strong> (click to expand) </summary>
 
-<img src = "figs/adair5d.png"> 
+<img src = "figs/adair5d.PNG"> 
 </details><br>
 
 
