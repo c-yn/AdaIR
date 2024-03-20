@@ -19,11 +19,9 @@ class Degradation(object):
         ])
 
     def _add_gaussian_noise(self, clean_patch, sigma):
-        # noise = torch.randn(*(clean_patch.shape))
-        # clean_patch = self.toTensor(clean_patch)
+
         noise = np.random.randn(*clean_patch.shape)
         noisy_patch = np.clip(clean_patch + noise * sigma, 0, 255).astype(np.uint8)
-        # noisy_patch = torch.clamp(clean_patch + noise * sigma, 0, 255).type(torch.int32)
         return noisy_patch, clean_patch
 
     def _degrade_by_type(self, clean_patch, degrade_type):

@@ -92,13 +92,12 @@ class AdaIRTrainDataset(Dataset):
 
         image_list = os.listdir(os.path.join(self.args.gopro_dir, 'blur/'))
         temp_ids = image_list
-        # print(temp_ids, 'temp_ids')
         self.deblur_ids = [{"clean_id" : x,"de_type":5} for x in temp_ids]
         self.deblur_ids = self.deblur_ids * 5
         self.deblur_counter = 0
         self.num_deblur = len(self.deblur_ids)
         print('Total Blur Ids : {}'.format(self.num_deblur))
-        # print(self.deblur_ids)
+
     def _init_enhance_ids(self):
         temp_ids = []
         image_list = os.listdir(os.path.join(self.args.enhance_dir, 'low/'))
@@ -107,7 +106,6 @@ class AdaIRTrainDataset(Dataset):
         self.enhance_ids = self.enhance_ids * 20
         self.num_enhance = len(self.enhance_ids)
         print('Total enhance Ids : {}'.format(self.num_enhance))
-
 
     def _init_rs_ids(self):
         temp_ids = []
@@ -119,7 +117,6 @@ class AdaIRTrainDataset(Dataset):
         self.rl_counter = 0
         self.num_rl = len(self.rs_ids)
         print("Total Rainy Ids : {}".format(self.num_rl))
-    
 
     def _crop_patch(self, img_1, img_2):
         H = img_1.shape[0]
@@ -171,12 +168,10 @@ class AdaIRTrainDataset(Dataset):
             self.sample_ids += self.enhance_ids
 
         print(len(self.sample_ids))
-        # print(self.sample_ids)
 
     def __getitem__(self, idx):
         sample = self.sample_ids[idx]
         de_id = sample["de_type"]
-        # print(de_id, sample)
         if de_id < 3:
             if de_id == 0:
                 clean_id = sample["clean_id"]
@@ -277,12 +272,10 @@ class DenoiseTestDataset(Dataset):
             for w_idx in w_idx_list:
                 in_patch = input_[..., h_idx:h_idx+tile, w_idx:w_idx+tile]
                 out_patch = in_patch
-                # out_patch = model(in_patch)
                 out_patch_mask = torch.ones_like(in_patch)
 
                 E[..., h_idx:(h_idx+tile), w_idx:(w_idx+tile)].add_(out_patch)
                 W[..., h_idx:(h_idx+tile), w_idx:(w_idx+tile)].add_(out_patch_mask)
-        # restored = E.div_(W)
 
         restored = torch.clamp(restored, 0, 1)
         return restored
@@ -312,8 +305,6 @@ class DerainDehazeDataset(Dataset):
         if self.task_idx == 0:
             self.ids = []
             name_list = os.listdir(self.args.derain_path + 'input/')
-            # print(name_list)
-            # print(self.args.derain_path)
             self.ids += [self.args.derain_path + 'input/' + id_ for id_ in name_list]
         elif self.task_idx == 1:
             self.ids = []

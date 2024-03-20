@@ -98,38 +98,6 @@ def splice_patches2image(patches, image_size, overlap=0):
     return image
 
 
-# def data_augmentation(image, mode):
-#     if mode == 0:
-#         # original
-#         out = image.numpy()
-#     elif mode == 1:
-#         # flip up and down
-#         out = np.flipud(image)
-#     elif mode == 2:
-#         # rotate counterwise 90 degree
-#         out = np.rot90(image, axes=(1, 2))
-#     elif mode == 3:
-#         # rotate 90 degree and flip up and down
-#         out = np.rot90(image, axes=(1, 2))
-#         out = np.flipud(out)
-#     elif mode == 4:
-#         # rotate 180 degree
-#         out = np.rot90(image, k=2, axes=(1, 2))
-#     elif mode == 5:
-#         # rotate 180 degree and flip
-#         out = np.rot90(image, k=2, axes=(1, 2))
-#         out = np.flipud(out)
-#     elif mode == 6:
-#         # rotate 270 degree
-#         out = np.rot90(image, k=3, axes=(1, 2))
-#     elif mode == 7:
-#         # rotate 270 degree and flip
-#         out = np.rot90(image, k=3, axes=(1, 2))
-#         out = np.flipud(out)
-#     else:
-#         raise Exception('Invalid choice of image transformation')
-#     return out
-
 def data_augmentation(image, mode):
     if mode == 0:
         # original
@@ -162,17 +130,6 @@ def data_augmentation(image, mode):
         raise Exception('Invalid choice of image transformation')
     return out
 
-
-# def random_augmentation(*args):
-#     out = []
-#     if random.randint(0, 1) == 1:
-#         flag_aug = random.randint(1, 7)
-#         for data in args:
-#             out.append(data_augmentation(data, flag_aug).copy())
-#     else:
-#         for data in args:
-#             out.append(data)
-#     return out
 
 def random_augmentation(*args):
     out = []

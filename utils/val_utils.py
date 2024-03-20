@@ -58,8 +58,6 @@ def compute_psnr_ssim(recoverd, clean):
     ssim = 0
 
     for i in range(recoverd.shape[0]):
-        # psnr_val += compare_psnr(clean[i], recoverd[i])
-        # ssim += compare_ssim(clean[i], recoverd[i], multichannel=True)
         psnr += peak_signal_noise_ratio(clean[i], recoverd[i], data_range=1)
         ssim += structural_similarity(clean[i], recoverd[i], data_range=1, multichannel=True)
 

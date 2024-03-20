@@ -39,7 +39,7 @@ python test.py --mode {n}
 Example Usage: To test on all the degradation types at once, run:
 
 ```
-python test.py --mode 3
+python test.py --mode 6
 ```
 <!-- 
 ## Demo

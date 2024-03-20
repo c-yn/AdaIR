@@ -123,20 +123,6 @@ class Attention(nn.Module):
         return out
 
 
-class resblock(nn.Module):
-    def __init__(self, dim):
-
-        super(resblock, self).__init__()
-        self.body = nn.Sequential(nn.Conv2d(dim, dim, kernel_size=3, stride=1, padding=1, bias=False),
-                                  nn.PReLU(),
-                                  nn.Conv2d(dim, dim, kernel_size=3, stride=1, padding=1, bias=False))
-
-    def forward(self, x):
-        res = self.body((x))
-        res += x
-        return res
-
-
 ##########################################################################
 ## Resizing modules
 class Downsample(nn.Module):
@@ -335,7 +321,6 @@ class FreModule(nn.Module):
 
     def shift(self, x):
         '''shift FFT feature map to center'''
-        # print(x.shape)
         b, c, h, w = x.shape
         return torch.roll(x, shifts=(int(h/2), int(w/2)), dims=(2,3))
 
@@ -345,7 +330,7 @@ class FreModule(nn.Module):
         return torch.roll(x, shifts=(-int(h/2), -int(w/2)), dims=(2,3))
 
     def fft(self, x, n=128):
-        """obtain high/low frequency features from input"""
+        """obtain high/low-frequency features from input"""
         x = self.conv1(x)
         mask = torch.zeros(x.shape).to(x.device)
         h, w = x.shape[-2:]
@@ -354,9 +339,9 @@ class FreModule(nn.Module):
 
         for i in range(mask.shape[0]):
             h_ = (h//n * threshold[i,0,:,:]).int()
-            w_ = (h//n * threshold[i,1,:,:]).int()
+            w_ = (w//n * threshold[i,1,:,:]).int()
 
-            mask[i, :, h//n-h_:h//n+h_, w//n-w_:w//n+w_] = 1
+            mask[i, :, h//2-h_:h//2+h_, w//2-w_:w//2+w_] = 1
 
         fft = torch.fft.fft2(x, norm='forward', dim=(-2,-1))
         fft = self.shift(fft)
@@ -449,6 +434,7 @@ class AdaIR(nn.Module):
 
         inp_enc_level4 = self.down3_4(out_enc_level3)        
         latent = self.latent(inp_enc_level4) 
+
         if self.decoder:
             latent = self.fre1(inp_img, latent)
       
@@ -458,6 +444,7 @@ class AdaIR(nn.Module):
         inp_dec_level3 = self.reduce_chan_level3(inp_dec_level3)
 
         out_dec_level3 = self.decoder_level3(inp_dec_level3) 
+
         if self.decoder:
             out_dec_level3 = self.fre2(inp_img, out_dec_level3)
 
@@ -466,6 +453,7 @@ class AdaIR(nn.Module):
         inp_dec_level2 = self.reduce_chan_level2(inp_dec_level2)
 
         out_dec_level2 = self.decoder_level2(inp_dec_level2)
+
         if self.decoder:
             out_dec_level2 = self.fre3(inp_img, out_dec_level2)
 
@@ -476,9 +464,7 @@ class AdaIR(nn.Module):
 
         out_dec_level1 = self.refinement(out_dec_level1)
 
-
         out_dec_level1 = self.output(out_dec_level1) + inp_img
-
 
         return out_dec_level1
     

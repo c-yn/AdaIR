@@ -156,7 +156,6 @@ def save_image_np(name, image_np, output_path="output/"):
 
 def save_image_tensor(image_tensor, output_path="output/"):
     image_np = torch_to_np(image_tensor)
-    # print(image_np.shape)
     p = np_to_pil(image_np)
     p.save(output_path)
 
@@ -233,11 +232,8 @@ def save_graphs(name, graph_dict, output_path="output/"):
     fig, ax = plt.subplots()
     for k, v in graph_dict.items():
         ax.plot(v, label=k)
-        # ax.semilogy(v, label=k)
     ax.set_xlabel('iterations')
-    # ax.set_ylabel(name)
     ax.set_ylabel('MSE-loss')
-    # ax.set_ylabel('PSNR')
     plt.legend()
     plt.savefig(output_path + name + ".png")
 
@@ -266,8 +262,6 @@ def get_image(path, imsize=-1):
             img = img.resize(imsize, Image.ANTIALIAS)
 
     img_np = pil_to_np(img)
-    #    3*460*620
-    #    print(np.shape(img_np))
 
     return img, img_np
 
@@ -279,14 +273,11 @@ def prepare_gt(file_name):
     :return: the numpy representation of the image
     """
     img = get_image(file_name, -1)
-    #    print(img[0].size)
 
     img_pil = img[0].crop([10, 10, img[0].size[0] - 10, img[0].size[1] - 10])
 
     img_pil = crop_image(img_pil, d=32)
 
-    #    img_pil = get_image(file_name, -1)[0]
-    #    print(img_pil.size)
     return pil_to_np(img_pil)
 
 
@@ -297,23 +288,10 @@ def prepare_image(file_name):
     :return: the numpy representation of the image
     """
     img = get_image(file_name, -1)
-    #    print(img[0].size)
-    #    img_pil = img[0]
+
     img_pil = crop_image(img[0], d=16)
-    #    img_pil = get_image(file_name, -1)[0]
-    #    print(img_pil.size)
+
     return pil_to_np(img_pil)
-
-
-# def prepare_video(file_name, folder="output/"):
-#     data = skvideo.io.vread(folder + file_name)
-#     return crop_torch_image(data.transpose(0, 3, 1, 2).astype(np.float32) / 255.)[:35]
-#
-#
-# def save_video(name, video_np, output_path="output/"):
-#     outputdata = video_np * 255
-#     outputdata = outputdata.astype(np.uint8)
-#     skvideo.io.vwrite(output_path + "{}.mp4".format(name), outputdata.transpose(0, 2, 3, 1))
 
 
 def prepare_gray_image(file_name):
