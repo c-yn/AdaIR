@@ -82,7 +82,16 @@ Performance results of the AdaIR framework trained under the all-in-one setting
 
 ## Citation
 If you use our work, please consider citing:
-
+~~~
+@misc{cui2024adair,
+      title={AdaIR: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation}, 
+      author={Yuning Cui and Syed Waqas Zamir and Salman Khan and Alois Knoll and Mubarak Shah and Fahad Shahbaz Khan},
+      year={2024},
+      eprint={2403.14614},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+~~~
 
 
 
