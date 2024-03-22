@@ -30,7 +30,7 @@ python train.py --de_type derain dehaze
 
 ## Testing
 
-After preparing the testing data in ```test/``` directory, place the mode checkpoint file in the ```ckpt``` directory. The pre-trained model can be downloaded here. To perform the evaluation, use
+After preparing the testing data in ```test/``` directory, place the mode checkpoint file in the ```ckpt``` directory. The pre-trained model can be downloaded [here](https://drive.google.com/drive/folders/1x2LN4kWkO3S65jJlH-1INUFiYt8KFzPH?usp=sharing). To perform the evaluation, use
 ```
 python test.py --mode {n}
 ```
@@ -61,7 +61,7 @@ To use tiling option while running ```demo.py``` set ```--tile``` option to ```T
 
 
 ## Results
-Performance results of the AdaIR framework trained under the all-in-one setting
+Performance results of the AdaIR framework trained under the all-in-one setting.
 
 <details>
 <summary><strong>Three Distinct Degradations</strong> (click to expand) </summary>
@@ -74,7 +74,7 @@ Performance results of the AdaIR framework trained under the all-in-one setting
 <img src = "figs/adair5d.PNG"> 
 </details><br>
 
-
+The visual results can be downloaded [here](https://drive.google.com/drive/folders/1lsYFumrn3-07Vcl3TZy0dzMMA9yDTpSK?usp=sharing).
 
 <!-- The visual results of the AdaIR model evaluated under the all-in-one setting can be downloaded [here](https://drive.google.com/drive/folders/1Sm-mCL-i4OKZN7lKuCUrlMP1msYx3F6t?usp=sharing) -->
 
