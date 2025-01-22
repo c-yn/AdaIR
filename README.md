@@ -1,4 +1,4 @@
-# AdaIR: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation
+# AdaIR: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation (ICLR'25)
 
 Yuning Cui, [Syed Waqas Zamir](https://scholar.google.ae/citations?hl=en&user=POoai-QAAAAJ), [Salman Khan](https://salman-h-khan.github.io/), [Alois Knoll](https://scholar.google.com.hk/citations?user=-CA8QgwAAAAJ&hl=zh-CN&oi=ao), [Mubarak Shah](https://scholar.google.com.hk/citations?user=p8gsO3gAAAAJ&hl=zh-CN&oi=ao), and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en)
 
@@ -83,13 +83,11 @@ The visual results can be downloaded [here](https://drive.google.com/drive/folde
 ## Citation
 If you use our work, please consider citing:
 ~~~
-@misc{cui2024adair,
+@inproceedings{cui2025adair,
       title={AdaIR: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation}, 
-      author={Yuning Cui and Syed Waqas Zamir and Salman Khan and Alois Knoll and Mubarak Shah and Fahad Shahbaz Khan},
-      year={2024},
-      eprint={2403.14614},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      author={Cui, Yuning and Zamir, Syed Waqas and Khan, Salman and Knoll, Alois and Shah, Mubarak and Khan, Fahad Shahbaz},
+      booktitle={The Thirteenth International Conference on Learning Representations},
+      year={2025}
 }
 ~~~
 
