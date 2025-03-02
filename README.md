@@ -84,10 +84,10 @@ The visual results can be downloaded [here](https://drive.google.com/drive/folde
 If you use our work, please consider citing:
 ~~~
 @inproceedings{cui2025adair,
-      title={AdaIR: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation}, 
-      author={Cui, Yuning and Zamir, Syed Waqas and Khan, Salman and Knoll, Alois and Shah, Mubarak and Khan, Fahad Shahbaz},
-      booktitle={The Thirteenth International Conference on Learning Representations},
-      year={2025}
+title={Ada{IR}: Adaptive All-in-One Image Restoration via Frequency Mining and Modulation},
+author={Yuning Cui and Syed Waqas Zamir and Salman Khan and Alois Knoll and Mubarak Shah and Fahad Shahbaz Khan},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025}
 }
 ~~~
 
