@@ -2,6 +2,8 @@
 
 Yuning Cui, [Syed Waqas Zamir](https://scholar.google.ae/citations?hl=en&user=POoai-QAAAAJ), [Salman Khan](https://salman-h-khan.github.io/), [Alois Knoll](https://scholar.google.com.hk/citations?user=-CA8QgwAAAAJ&hl=zh-CN&oi=ao), [Mubarak Shah](https://scholar.google.com.hk/citations?user=p8gsO3gAAAAJ&hl=zh-CN&oi=ao), and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en)
 
+### 🎄 We have released the code and models for our new all-in-one model, which achieves higher performance with lower computational overhead.
+### 🎁 Please refer to https://github.com/c-yn/BioIR (NeurIPS 2025)
 
 <hr />
 
